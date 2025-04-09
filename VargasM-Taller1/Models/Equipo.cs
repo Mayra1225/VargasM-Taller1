@@ -21,3 +21,5 @@ namespace VargasM_Taller1.Models
         public int PartidosEmpatados { get; set; }
     }
 }
+
+// Prueba
