@@ -4,6 +4,13 @@ namespace VargasM_Taller1.Repositories
 {
     public class EquipoRepository
     {
+        public IEnumerable<Equipo> Equipos;
+
+        public EquipoRepository()
+        {
+            Equipos = DevuelveListadoEquipos();
+        }
+
         public IEnumerable<Equipo> DevuelveListadoEquipos()
         {
             List<Equipo> equipos = new List<Equipo>();
@@ -31,6 +38,18 @@ namespace VargasM_Taller1.Repositories
             equipos.Add(barceloina);
 
             return equipos;
+        }
+
+        public Equipo DevuelveEquipoporId(int Id)
+        {
+            var equipo = Equipos.First(item => item.Id == Id);
+
+            return equipo;
+        }
+
+        public Boolean ActualizarEquipo(int Id, Equipo equpo)
+        {
+            return true;
         }
     }
 }
