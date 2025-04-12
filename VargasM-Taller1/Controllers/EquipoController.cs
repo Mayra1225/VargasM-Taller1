@@ -23,28 +23,12 @@ namespace VargasM_Taller1.Controllers
         {
             var equipos = _repository.DevuelveListadoEquipos();
 
-            equipos = equipos.OrderBy(item => item.PartidosGanados);
-
             return View(equipos);
         }
 
         public ActionResult Create()
         {
             return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection colletion)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult Edit(int Id)

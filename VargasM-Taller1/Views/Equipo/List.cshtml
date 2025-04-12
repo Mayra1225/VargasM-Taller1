@@ -2,65 +2,73 @@
 
 @{
 	ViewData["Title"] = "List";
+	int pos = 1;
 }
 
-<h1>List</h1>
+<h1>Tabla de Posiciones</h1>
 
-<p>
-	<a class="btn btn-info" asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+
+<table class="table table-hover">
 	<thead>
 		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.Id)
+			<th class="text-center">
+				#
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Nombre)
+				Club
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.PartidosGanados)
+			<th class="text-center">
+				PJ
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.PartidosPerdidos)
+			<th class="text-center">
+				G
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.PartidosJugados)
+			<th class="text-center">
+				E
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.PartidosEmpatados)
+			<th class="text-center">
+				P
 			</th>
-			<th></th>
+			<th class="text-center">
+				Puntos
+			</th>
+			<th class ="text-center"></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach (var item in Model)
 		{
+			string claseColor = pos <= 6 ? "top6" :
+                                (pos <= 12 ? "mitad" : "descenso");
 			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Id)
+				<td class="text-center">
+					@pos
 				</td>
 				<td>
+					<img src="@item.LogoUrl" width="25" />
 					@Html.DisplayFor(modelItem => item.Nombre)
 				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.PartidosGanados)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.PartidosPerdidos)
-				</td>
-				<td>
+				<td class="text-center">
 					@Html.DisplayFor(modelItem => item.PartidosJugados)
 				</td>
-				<td>
+				<td class="text-center">
+					@Html.DisplayFor(modelItem => item.PartidosGanados)
+				</td>
+				<td class="text-center">
 					@Html.DisplayFor(modelItem => item.PartidosEmpatados)
 				</td>
-				<td>
-					@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
-					@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" }) |
-					@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
+				<td class="text-center">
+					@Html.DisplayFor(modelItem => item.PartidosPerdidos)
+				</td>
+				<td class="text-center">
+					@Html.DisplayFor(modelItem => item.Puntos)
+				</td>
+				<td class="text-center">
+					@Html.ActionLink("Ver Información", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
 				</td>
 			</tr>
+			pos++;
 		}
 	</tbody>
 </table>
