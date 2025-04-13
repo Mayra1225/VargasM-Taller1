@@ -4,6 +4,22 @@
     ViewData["Title"] = "Edit";
 }
 
+<style>
+    body {
+        background-color: #2c3e50; /* Azul Bootstrap */
+        color: white; /* Para que el texto sea legible */
+    }
+
+    .table, .table th, .table td {
+        color: white;
+        background-color: transparent;
+    }
+
+    .thead-dark th {
+        background-color: #2c3e50;
+    }
+</style>
+
 <h1>Información</h1>
 
 <h4>@Model.Nombre</h4>
@@ -36,10 +52,10 @@
                 <input asp-for="PartidosPerdidos" class="form-control" />
                 <span asp-validation-for="PartidosPerdidos" class="text-danger"></span>
             </div>
-            <button type="button" class="btn btn-warning" onclick="calcularPuntos()">Calcular Puntos</button>
+            <button type="button" class="btn btn-warning text-white" onclick="calcularPuntos()">Calcular Puntos</button>
             <p id="puntosTotal" class="mt-2"></p>
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary"/>
             </div>
         </form>
         <script>
@@ -54,7 +70,7 @@
 </div>
   
 <div>
-    <a class="btn btn-info" asp-action="List">Back to List</a>
+    <a class="btn btn-info text-white" asp-action="List">Back to List</a>
 </div>
 
 @section Scripts {
